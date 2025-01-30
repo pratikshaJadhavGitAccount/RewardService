@@ -64,19 +64,5 @@ public class RewardService {
 		customerDetailsRepo.delete(cust);
 	}
 
-	public List<Customer> getAllCustomers() {
-		List<Customer> customers = customerRepo.findAll();
-		return customers;
-	}
-
-	public Customer updateCustomer(Long id, Customer custDetails) {
-		Customer customer = customerRepo.findById(id).orElseThrow(() -> new CustomerNotFoundException("Customer is not available"));
-		customer.setName(custDetails.getName());
-		customer.setDate(custDetails.getDate());
-		customer.setReward(custDetails.getReward());
-		customer.setCustomerDetails(custDetails.getCustomerDetails());
-		customer.setSpentAmt(custDetails.getSpentAmt());
-		customerRepo.save(customer);
-		return null;
-	}
+	
 }

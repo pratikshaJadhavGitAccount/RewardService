@@ -29,16 +29,6 @@ public class RewardController {
 		return ResponseEntity.ok(service.registerCustomer(customer));
 	}
 
-	@GetMapping("/getAllCustomer")
-	public ResponseEntity<List<Customer>> getAllCustomers() {
-		return ResponseEntity.ok(service.getAllCustomers());
-	}
-
-	@PutMapping("/updateCustDetails/{id}")
-	public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer custDetails) {
-		return ResponseEntity.ok(service.updateCustomer(id, custDetails));
-	}
-
 	@DeleteMapping("/deleteCustomer/{id}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable int id) {
 		service.deleteCustomer(id);
@@ -49,10 +39,4 @@ public class RewardController {
 	public ResponseEntity<Double> calculateRewardPointForCustomer(@PathVariable String name) {
 		return ResponseEntity.ok(service.calculateRewardforCustomerById(name));
 	}
-
-	@GetMapping("/calculate/{amount}")
-	public ResponseEntity<Double> getRewardPoints(@PathVariable double amount) {
-		return ResponseEntity.ok(service.calculateRewardPoints(amount));
-	}
-
 }
